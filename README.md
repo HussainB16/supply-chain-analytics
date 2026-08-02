@@ -79,7 +79,7 @@ A star schema built from the original flat file:
 
 ## Key Insights
 
-!. Total Sales peaks during the first Quarter and then decreases gradually and takes a significant decrease in last two months.
+1. Total Sales peaks during the first Quarter and then decreases gradually and takes a significant decrease in last two months.
 2. Consumer segment contributes to 50% of the total sales.
 3. Fishing, Cleats, Camping and hiking products contribute the most to the sales.
 4. Central Africa and South of USA suffer high late Delivery %.
