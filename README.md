@@ -1,6 +1,6 @@
 # Supply Chain & Delivery Performance Analytics
 
-An end-to-end data analysis project examining delivery performance, profitability, and regional risk across a global supply chain — built with Python, SQL Server, and Power BI.
+An end-to-end data analysis project examining delivery performance, profitability, and regional risk across a global supply chain built with Python, SQL Server, and Power BI.
 
 ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
@@ -14,10 +14,10 @@ An end-to-end data analysis project examining delivery performance, profitabilit
 Global supply chains generate huge volumes of order and shipping data, but raw transaction logs rarely answer the questions that matter to the business:
 
 - Which shipping modes and regions consistently underperform on delivery time?
-- Where is the company losing money — which product categories or customer segments carry negative margins?
+- Where is the company losing money, which product categories or customer segments carry negative margins?
 - Does late delivery actually hurt customer satisfaction and profitability, or are they unrelated?
 
-This project builds a full pipeline — from raw flat-file data to a decision-ready dashboard — to answer those questions with evidence, not guesswork.
+This project builds a full pipeline from raw flat-file data to a decision-ready dashboard to answer those questions with evidence, not guesswork.
 
 ---
 
@@ -41,8 +41,6 @@ Power BI — data model, DAX measures, 3-page interactive dashboard
 ## Dataset
 
 **[DataCo Smart Supply Chain Dataset](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis)** (Kaggle) — ~180,000 order records from a global retailer, 2015–2018, covering orders, shipping, products, customers, and profitability.
-
-> Raw data is not included in this repo (per Kaggle's terms). Download `DataCoSupplyChainDataset.csv` from the link above and place it in a local `data/` folder to reproduce the pipeline.
 
 ---
 
@@ -74,7 +72,6 @@ A star schema built from the original flat file:
 
 **Aggregated analytical views** (SQL Server):
 - `vw_monthly_trend` — monthly sales, profit, and late-order counts
-- `vw_repeat_customer_rate` — repeat vs. one-time customer split
 - `vw_top_regions_late_delivery` — regions ranked by late-delivery %
 - `vw_category_profit_summary` — profit and margin by product category
 
@@ -82,10 +79,6 @@ A star schema built from the original flat file:
 
 ## Key Insights
 
-- *(Replace with your actual numbers once the dashboard is finalized — this is the section recruiters read first.)*
-- Example format: "Standard Class shipping shows a 2.4x higher late-delivery rate than First Class, while accounting for 60% of total order volume — a targeted fix here would have outsized operational impact."
-- Example format: "Region X carries an average shipping delay of 3.1 days, 40% above the company average, and correlates with the lowest customer review scores in the dataset."
-- Example format: "Category Y operates at a −4% average profit margin despite high sales volume, driven by elevated discount rates."
 
 ---
 
