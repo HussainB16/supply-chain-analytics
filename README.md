@@ -85,13 +85,13 @@ A star schema built from the original flat file:
 ## Dashboard Preview
 
 ### Page 1 — Executive Overview
-![Executive Overview](powerbi/screenshots/page1_executive_overview.png)
+![Executive Overview](powerbi/screenshots/Executive_Overview.png)
 
 ### Page 2 — Delivery & Logistics Performance
-![Delivery Performance](powerbi/screenshots/page2_delivery_logistics.png)
+![Delivery Performance](powerbi/screenshots/Delivery_and_Logistics_performance.png)
 
 ### Page 3 — Profitability Analysis
-![Profitability Analysis](powerbi/screenshots/page3_profitability.png)
+![Profitability Analysis](powerbi/screenshots/Profitability_Analysis.png)
 
 ---
 
