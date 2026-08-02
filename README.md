@@ -88,7 +88,7 @@ A star schema built from the original flat file:
 ![Executive Overview](powerbi/Screenshots/Executive_Overview.png)
 
 ### Page 2 — Delivery & Logistics Performance
-![Delivery Performance](powerbi/Screenshots/Delivery_and_Logistics_performance.png)
+![Delivery Performance](powerbi/Screenshots/Delivery_and_Logistics_performace.png)
 
 ### Page 3 — Profitability Analysis
 ![Profitability Analysis](powerbi/Screenshots/Profitability_Analysis.png)
