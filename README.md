@@ -1,0 +1,149 @@
+# Supply Chain & Delivery Performance Analytics
+
+An end-to-end data analysis project examining delivery performance, profitability, and regional risk across a global supply chain — built with Python, SQL Server, and Power BI.
+
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoftsqlserver&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
+
+---
+
+## Problem Statement
+
+Global supply chains generate huge volumes of order and shipping data, but raw transaction logs rarely answer the questions that matter to the business:
+
+- Which shipping modes and regions consistently underperform on delivery time?
+- Where is the company losing money — which product categories or customer segments carry negative margins?
+- Does late delivery actually hurt customer satisfaction and profitability, or are they unrelated?
+
+This project builds a full pipeline — from raw flat-file data to a decision-ready dashboard — to answer those questions with evidence, not guesswork.
+
+---
+
+## Architecture
+
+```
+Raw CSV (Kaggle) 
+      │
+      ▼
+Python (pandas) — clean, feature-engineer, split into star schema
+      │
+      ▼
+SQL Server — load fact/dimension tables, write analytical views (CTEs, window functions)
+      │
+      ▼
+Power BI — data model, DAX measures, 3-page interactive dashboard
+```
+
+---
+
+## Dataset
+
+**[DataCo Smart Supply Chain Dataset](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis)** (Kaggle) — ~180,000 order records from a global retailer, 2015–2018, covering orders, shipping, products, customers, and profitability.
+
+> Raw data is not included in this repo (per Kaggle's terms). Download `DataCoSupplyChainDataset.csv` from the link above and place it in a local `data/` folder to reproduce the pipeline.
+
+---
+
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| Data cleaning & feature engineering | Python, pandas |
+| Data loading | SQLAlchemy, pyodbc |
+| Database | Microsoft SQL Server |
+| Analysis | T-SQL — CTEs, window functions, aggregate views |
+| Visualization | Power BI (DAX measures, star schema data model) |
+
+---
+
+## Data Model
+
+A star schema built from the original flat file:
+
+**Fact table:** `fact_orders` — one row per order line item, with delivery, sales, and profit metrics.
+
+**Dimension tables:**
+- `dim_customer`
+- `dim_product`
+- `dim_department`
+- `dim_shipping`
+- `dim_location`
+- `dim_date`
+
+**Aggregated analytical views** (SQL Server):
+- `vw_monthly_trend` — monthly sales, profit, and late-order counts
+- `vw_repeat_customer_rate` — repeat vs. one-time customer split
+- `vw_top_regions_late_delivery` — regions ranked by late-delivery %
+- `vw_category_profit_summary` — profit and margin by product category
+
+---
+
+## Key Insights
+
+- *(Replace with your actual numbers once the dashboard is finalized — this is the section recruiters read first.)*
+- Example format: "Standard Class shipping shows a 2.4x higher late-delivery rate than First Class, while accounting for 60% of total order volume — a targeted fix here would have outsized operational impact."
+- Example format: "Region X carries an average shipping delay of 3.1 days, 40% above the company average, and correlates with the lowest customer review scores in the dataset."
+- Example format: "Category Y operates at a −4% average profit margin despite high sales volume, driven by elevated discount rates."
+
+---
+
+## Dashboard Preview
+
+### Page 1 — Executive Overview
+![Executive Overview](powerbi/screenshots/page1_executive_overview.png)
+
+### Page 2 — Delivery & Logistics Performance
+![Delivery Performance](powerbi/screenshots/page2_delivery_logistics.png)
+
+### Page 3 — Profitability Analysis
+![Profitability Analysis](powerbi/screenshots/page3_profitability.png)
+
+---
+
+## Repository Structure
+
+```
+├── notebooks/
+│   └── data_cleaning_feature_engineering.ipynb   # Python: clean, engineer features, build star schema
+├── sql/
+│   ├── 01_sanity_checks.sql
+│   ├── 02_core_view.sql
+│   ├── 03_delivery_performance.sql
+│   ├── 04_profitability.sql
+│   ├── 05_regional_risk.sql
+│   ├── 06_customer_behavior.sql
+│   ├── 07_window_functions.sql
+│   └── 08_powerbi_views.sql
+├── powerbi/
+│   ├── supply_chain_dashboard.pbix
+│   └── screenshots/
+└── README.md
+```
+
+---
+
+## How to Reproduce
+
+1. Download the dataset from Kaggle (link above) and place the CSV in a local `data/` folder.
+2. Run `notebooks/data_cleaning_feature_engineering.ipynb` — cleans the data, engineers delivery/profit features, and splits it into fact/dimension tables.
+3. Update the SQL Server connection string in the notebook with your own server/database details, then run the load cells to push the tables in.
+4. Run the SQL scripts in `sql/` (in order) against your SQL Server database to create the analytical views.
+5. Open `powerbi/supply_chain_dashboard.pbix` in Power BI Desktop, point the data source to your SQL Server instance, and refresh.
+
+---
+
+## Business Questions Answered
+
+- How is revenue and profit trending month over month?
+- Which shipping modes and regions have the worst on-time delivery performance?
+- Which product categories and customer segments are most/least profitable?
+- What is the repeat customer rate, and how does it vary by segment?
+- Is there a measurable relationship between shipping delay and profit margin?
+
+---
+
+## Author
+
+Built as part of a data analyst / data engineer portfolio.
