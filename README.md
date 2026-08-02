@@ -141,7 +141,6 @@ A star schema built from the original flat file:
 - How is revenue and profit trending month over month?
 - Which shipping modes and regions have the worst on-time delivery performance?
 - Which product categories and customer segments are most/least profitable?
-- What is the repeat customer rate, and how does it vary by segment?
 - Is there a measurable relationship between shipping delay and profit margin?
 
 ---
